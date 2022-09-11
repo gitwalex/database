@@ -1,18 +1,11 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'maven-publish'
 }
 
 android {
-    publishing {
-        singleVariant("release") {
-            // if you don't want sources/javadoc, remove these lines
-            withSourcesJar()
-            withJavadocJar()
-        }
-    }
     namespace 'com.gerwalex.database'
     compileSdk 32
 
@@ -34,11 +27,20 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+        // Compile für unchecked und deprecation
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
         tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
             kotlinOptions {
                 jvmTarget = '1.8'
+                freeCompilerArgs = [
+                        "-Xjavac-arguments='-Xlint:unchecked -Xlint:deprecation'"
+                ]
+                freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
             }
         }
+
     }
 }
 
