@@ -1,0 +1,18 @@
+<resources>
+
+    <declare-styleable name="ImageDecoView">
+        <attr name="borderColor" format="color" />
+        <attr name="imageText" format="reference" />
+        <attr name="imageTextBackground" format="color" />
+        <attr name="placeholder" format="reference" />
+        <attr name="borderWidth" format="dimension" />
+
+    </declare-styleable>
+
+    <style name="ImageDecoViewStyle">
+        <item name="borderColor">@color/defaultBorderColor</item>
+
+    </style>
+
+    <color name="defaultBorderColor">@android:color/holo_red_dark</color>
+</resources>
