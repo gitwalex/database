@@ -1,4 +1,4 @@
-package com.gerwalex.lib.database
+package com.gerwalex.database
 
 import android.database.Cursor
 import androidx.room.RoomDatabase

@@ -1,11 +1,10 @@
-package com.gerwalex.lib.database
+package com.gerwalex.database
 
 import android.content.ContentValues
 import android.database.Cursor
 import androidx.annotation.CallSuper
 import androidx.databinding.BaseObservable
 import androidx.room.Ignore
-import com.gerwalex.database.MyConverter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

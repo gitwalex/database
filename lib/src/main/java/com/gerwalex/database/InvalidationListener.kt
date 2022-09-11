@@ -1,4 +1,4 @@
-package com.gerwalex.lib.database
+package com.gerwalex.database
 
 fun interface InvalidationListener<T> {
 

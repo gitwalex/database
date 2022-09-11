@@ -188,7 +188,9 @@ public class Utils {
         ConnectionType result = ConnectionType.NONE; // Returns connection type. 0: none; 1: mobile data; 2: wifi
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            int type = cm.getActiveNetworkInfo().getType();
+            int type = cm
+                    .getActiveNetworkInfo()
+                    .getType();
             if (type == ConnectivityManager.TYPE_WIFI) {
                 result = ConnectionType.WiFi;
             } else if (type == ConnectivityManager.TYPE_MOBILE) {
@@ -245,7 +247,9 @@ public class Utils {
      */
     public static <T> T instantiate(@NonNull final String className, @NonNull final Class<T> type) {
         try {
-            return type.cast(Class.forName(className).newInstance());
+            return type.cast(Class
+                    .forName(className)
+                    .newInstance());
         } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             throw new IllegalStateException(e);
         }
@@ -263,7 +267,9 @@ public class Utils {
         try {
             Log.d("gerwalex", "Lade Tabelle " + tablename);
             BufferedReader buffer = new BufferedReader(new InputStreamReader(in));
-            String[] colnames = buffer.readLine().split(";");
+            String[] colnames = buffer
+                    .readLine()
+                    .split(";");
             String line;
             while ((line = buffer.readLine()) != null) {
                 String[] csvcolumns = line.split(";");
@@ -295,7 +301,9 @@ public class Utils {
     public static List<ContentValues> loadCSVFile(InputStream in) throws IOException {
         List<ContentValues> list = new ArrayList<>();
         BufferedReader buffer = new BufferedReader(new InputStreamReader(in));
-        String[] colnames = buffer.readLine().split(";");
+        String[] colnames = buffer
+                .readLine()
+                .split(";");
         String line;
         while ((line = buffer.readLine()) != null) {
             if (!line.startsWith("--")) {
@@ -332,7 +340,10 @@ public class Utils {
                     if (i != 0) {
                         sbParams.append("&");
                     }
-                    sbParams.append(key).append("=").append(URLEncoder.encode(params.get(key), charset));
+                    sbParams
+                            .append(key)
+                            .append("=")
+                            .append(URLEncoder.encode(params.get(key), charset));
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }

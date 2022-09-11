@@ -1,4 +1,4 @@
-package com.gerwalex.lib.database
+package com.gerwalex.database
 
 import android.util.Log
 import androidx.annotation.CallSuper
